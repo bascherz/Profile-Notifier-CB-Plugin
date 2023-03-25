@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<cbinstall version="4.5.3" type="plugin" group="user">
+<cbinstall version="1.0" type="plugin" group="user">
     <name>CB Profile Notifier</name>
     <author>Bruce Scherzinger</author>
-    <creationDate>July 2017</creationDate>
-    <copyright>(C) 2007-2017 Bruce Scherzinger</copyright>
+    <creationDate>October 2013</creationDate>
+    <copyright>(C) 2013 Bruce Scherzinger</copyright>
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-    <authorEmail>joomlander@scherzinger.org</authorEmail>
-    <authorUrl>joomla.org</authorUrl>
+    <authorEmail>bruce@joomlander.scherzinger.org</authorEmail>
+    <authorUrl>joomlander.scherzinger.org</authorUrl>
     <version>2.0</version>
+    <release>2.7</release>
     <description>
         <![CDATA[
-            <h3>Community Builder Profile Notifier Plug-In v2.2</h3>
+            <h3>Community Builder Profile Notifier Plug-In v2.7</h3>
             <address>&copy; Bruce Scherzinger, <a href="http://joomlander.net" target=_blank>http://joomlander.net</a></address>
             <p>Sends emails to the site administrator or other specified address when any user profile field is modified.
             <p>The notification email indicates which fields were modified, their previous values and new values.
@@ -66,11 +67,15 @@
             <option value="1">Yes</option>
         </param>
         <param name="excludes" type="text" size="40" default="" label="Exclude fields" description="Enter the names of any other fields you wish to exclude, separated by commas. All fields not listed here or checked as NO above will be checked." />
-        <param name="@spacer" type="spacer" default="" label="NOTIFICATION EMAIL CONFIGURATION" description="" />
+
+        <param name="@spacer" type="spacer" default="" label="USER REGISTRATION OPTIONS" description="" />
         <param name="register_notify" type="radio" default="0" label="Notify admin of new user registration" description="Do you want to send email notification when a new user registers?">
             <option value="0">No</option>
             <option value="1">Yes</option>
         </param>
+        <param name="regdefaults" type="textarea" cols="40" rows="6" default="" label="Default Field Values" description="Enter field=value, one per line." />
+
+        <param name="@spacer" type="spacer" default="" label="NOTIFICATION EMAIL CONFIGURATION" description="" />
         <param name="backend_notify" type="radio" default="0" label="Notify of back-end changes" description="Do you want to send email notification of changes made in the site back end?">
             <option value="0">No</option>
             <option value="1">Admin</option>

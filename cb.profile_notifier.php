@@ -1,11 +1,11 @@
 <?php
 /**
     Name:    CB Profile Notifier
-    Version: 2.6
-    Date:    July 2017
+    Version: 2.7
+    Date:    November 2022
     Author:  Bruce Scherzinger
     Email:   joomlander@scherzinger.org
-    URL:     http://joomla.org
+    URL:     http://scherzinger.org
     Purpose: Community Builder tab to send admin nofitication emails when members change profiles.
 
     License: GNU/GPL
@@ -273,6 +273,15 @@ class getProfileNotifyTab extends cbTabHandler
     {
         // Get plug-in parameters
         $params = $this->params;
+        $database = JFactory::getDBO();
+
+        // Check for default field values and set them, if any.
+        $defaults = explode("\n",$params->get('regdefaults',''));
+        foreach ($defaults as $default)
+        {
+            $database->setQuery("UPDATE #__comprofiler SET $default WHERE user_id=$user->id");
+            $result = $database->query();
+        }
 
         // See if notification of backend changes is requested
         $notify = (int) $params->get('register_notify',0);
